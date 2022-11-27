@@ -1,0 +1,35 @@
+.features {
+}
+
+.features__list {
+  @extend %list;
+  display: flex;
+  gap: 30px;
+}
+
+.features__item {
+  flex-basis: calc(100% / 4 - 30px);
+}
+
+.features__box-icon {
+  width: 270px;
+  height: 120px;
+  padding: 25px 100px;
+  margin-bottom: 30px;
+  background-color: $features-icon-bg-color;
+  border-radius: 4px;
+  background-position: center;
+}
+
+.features__title {
+  @extend %title;
+  margin-bottom: 10px;
+  color: $basic-text-color;
+  font-weight: 700;
+  line-height: 1.14;
+  text-transform: uppercase;
+}
+
+.features__text {
+    @extend %title;
+}

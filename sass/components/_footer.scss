@@ -1,0 +1,94 @@
+.footer {
+  display: flex;
+  background-color: $background-footer-color;
+
+  &__logo {
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    color: $auxiliary-text-color;
+
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+
+    text-decoration: none;
+  }
+
+  &__text {
+    color: $hover-color;
+  }
+}
+
+.footer__box {
+  padding: 60px 15px;
+  display: flex;
+}
+
+.contact {
+  margin-right: 70px;
+}
+
+// стилізація адреси
+
+.address {
+  font-style: normal;
+}
+
+.address__list {
+  @extend %list;
+}
+
+.address__item {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.address__text {
+  @extend %title;
+  color: $auxiliary-text-color;
+}
+
+.address__link {
+  color: $contact-footer-color;
+
+  text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: $hover-color;
+  }
+}
+
+.social {
+  margin-top: 12px;
+  margin-right: 93px;
+  margin-bottom: auto;
+}
+
+.social__title {
+  @extend %title;
+  margin-bottom: 20px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(16 / 14);
+  text-transform: uppercase;
+
+  color: $auxiliary-text-color;
+}
+
+.footer__social-link {
+  color: $auxiliary-text-color;
+  background-color: $footer-social-link-bg-color;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: $hover-color;
+  }
+}

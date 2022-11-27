@@ -1,0 +1,52 @@
+.hero {
+  max-width: 1600px;
+  padding: 200px 0;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(
+      to right,
+     $bg-hero-color,
+     $bg-hero-color),
+    url(../images/hero.jpg);
+  background-color: $bg-hero-color;
+
+  &__title {
+    @extend %title;
+    width: 696px;
+    margin: auto;
+    margin-bottom: 30px;
+
+    color: $auxiliary-text-color;
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 1.36;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+}
+
+.button {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 10px 32px;
+  box-shadow: 0px 4px 4px $booton-shadoow-color;
+  border: none;
+
+  color: $booton-text-color;
+  background-color: $booton-bg-color;
+
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(30/16);
+  letter-spacing: 0.06em;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus{
+    background-color: $booton-bg-activ-color;
+  }
+}
