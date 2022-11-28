@@ -5,14 +5,19 @@
   transform: translate(-50%, -50%) scale(1);
 
   text-align: center;
-  min-width: 528px;
-  min-height: 581px;
+  min-width: 450px;
+  min-height: 609px;
   padding: 40px;
 
   background-color: $modal-bg-color;
 
   transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: $desktop) {
+    min-width: 528px;
+    min-height: 581px;
+  }
 }
 
 .is-hidden .modal {
@@ -51,8 +56,12 @@
 
   font-weight: 700;
   font-size: 20px;
-  line-height: calc(23 / 20);
+  line-height: calc(30 / 20);
   color: $basic-text-color;
+
+  @media screen and (min-width: $desktop) {
+    line-height: calc(23/20);
+  }
 }
 
 .modal__form {
@@ -145,6 +154,16 @@
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 30px;
+
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  letter-spacing: 0.03em;
+
+
+  @media screen and (min-width: $desktop) {
+    font-size: 14px;
+    line-height: calc(24/14);
+  }
 }
 
 .modal__form-checkbox:checked + .modal__check-icon {
@@ -166,6 +185,6 @@
   color: $hover-color;
 }
 
-.modal__form-button{
-    padding: 10px 60px;
+.modal__form-button {
+  padding: 10px 60px;
 }
