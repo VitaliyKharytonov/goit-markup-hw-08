@@ -2,7 +2,6 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
 
   text-align: center;
   min-width: 450px;
@@ -11,7 +10,7 @@
 
   background-color: $modal-bg-color;
 
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50% ,-50%) scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: $desktop) {
