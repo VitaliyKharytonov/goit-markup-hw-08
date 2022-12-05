@@ -4,7 +4,7 @@ body {
   background-color: $auxiliary-text-color;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
-  line-height: 1.71;
+  line-height: calc(24/14);
   letter-spacing: 0.03em;
 
   &.modal-open {
@@ -58,8 +58,13 @@ body {
 }
 
 .section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+@media screen and (min-width: $desktop) {
   padding-top: 94px;
   padding-bottom: 94px;
+}
 }
 
 .backdrop {

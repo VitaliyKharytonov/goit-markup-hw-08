@@ -1,62 +1,183 @@
+
+// шапка сайту
+
 .page-header {
-  border-bottom:1px solid $border-header-color;
+  border-bottom: 1px solid $border-header-color;
   background-color: $auxiliary-text-color;
 
   &__container {
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: $tablet - 1px) {
+      position: relative;
+      justify-content: space-between;
+    }
+  }
+
+// логотип шапки
+
+  &__logo {
+    padding: 16px 0;
+
+    @media screen and (min-width: $tablet) {
+      padding: 26px 0;
+      margin-right: 88px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      padding: 24px 0 25px;
+      margin-right: 93px;
+    }
+  }
+}
+
+// мобільне меню
+
+.mobile-menu {
+  @media screen and (max-width: $tablet - 1px) {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px 48px;
+
+    background-color: $mobile-menu-bg-color;
+
+    overflow-y: scroll;
+
+    &.is-open {
+      display: block;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 }
 
-.site-nav {
+// кнопка мобільного меню
+
+.mobile-menu__button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  min-height: 40px;
+  min-width: 40px;
+  z-index: 999;
   display: flex;
   align-items: center;
+  justify-content: center;
 
-  &__logo {
-    padding: 24px 0 25px;
-    margin-right: 93px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: $hover-color;
+  }
+
+  &.is-open .icon-cross {
+    display: block;
+  }
+  &.is-open .icon-menu {
+    display: none;
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.icon-menu {
+  fill: currentColor;
+}
+
+.icon-cross {
+  fill: currentColor;
+  display: none;
+}
+
+// навігація сайту
+
+.site-nav {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: center;
+    margin-right: 90px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 315px;
   }
 }
 
 .site-nav__list {
   @extend %list;
-  display: flex;
-  list-style: none;
-  position: relative;
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    position: relative;
+  }
 }
 
 .site-nav__item {
   display: block;
-  position: relative;
 
-  &:not(:last-child) {
-    margin-right: 50px;
-  }
+  @media screen and (min-width: $tablet) {
+    position: relative;
 
-  &--activ::after {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    content: "";
-    width: 100%;
-    height: 4px;
-    border-radius: 4px;
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
 
-    background-color: $hover-color;
+    &--activ::after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      content: "";
+      width: 100%;
+      height: 4px;
+      border-radius: 4px;
+
+      background-color: $hover-color;
+    }
   }
 }
 
 .site-nav__link {
   display: block;
-  padding: 32px 0;
 
   color: $basic-text-color;
   font-weight: 500;
-  line-height: 1.14;
+  font-size: 40px;
+  line-height: calc(47 / 40);
   letter-spacing: 0.02em;
   text-decoration: none;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (max-width: $tablet - 1px) {
+    margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding: 32px 0;
+
+    font-size: 14px;
+    line-height: calc(16 / 14);
+  }
 
   &:hover,
   &:focus {
@@ -68,45 +189,133 @@
   }
 }
 
+// почта и мило навігації
+
 .auth-nav {
   @extend %list;
   display: flex;
-  align-items: center;
 
-  list-style: none;
-}
-.auth-nav__item {
-  &:not(:first-child) {
-    margin-left: 50px;
+  @media screen and (max-width: $tablet - 1px) {
+    flex-direction: column-reverse;
+  }
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: $desktop) {
+    flex-direction: row;
   }
 }
-.auth-nav__link {
-  display: flex;
-  align-items: center;
-  padding: 32px 0;
 
-  color: $additional-text-color;
+.auth-nav__item {
   font-weight: 500;
-  line-height: 1.14;
+  font-size: 24px;
+  line-height: calc(28 / 24);
   letter-spacing: 0.02em;
 
+  @media screen and (max-width: $tablet - 1px) {
+    margin-bottom: 64px;
+
+    &:nth-child(2) {
+      margin-bottom: 32px;
+      font-size: 34px;
+      line-height: calc(40 / 34);
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    font-size: 12px;
+    line-height: calc(14 / 12);
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    &:not(:last-child) {
+      margin-right: 50px;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.auth-nav__link {
+  color: $additional-text-color;
   text-decoration: none;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: center;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 32px 0;
+  }
 
   &:hover,
   &:focus {
     color: $hover-color;
   }
 }
+
+// иконки телефона и почти
+
 .auth-nav__icon-mail {
+  display: none;
   width: 16px;
   height: 12px;
   margin-right: 10px;
   fill: currentColor;
+
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
 }
+
 .auth-nav__icon-smartphone {
+  display: none;
   width: 10px;
   height: 16px;
   margin-right: 10px;
   fill: currentColor;
+
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
+}
+
+// cоцсети мобильного меню
+
+.mobile-social__list {
+  @extend %list;
+  display: flex;
+
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.mobile-social__item {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: calc(22 / 18);
+  letter-spacing: 0.02em;
+
+  &:not(:last-child) {
+    padding-right: 10px;
+
+    border-right: 1px solid $input-border-color;
+  }
+
+  &:not(:first-child) {
+    padding-left: 10px;
+  }
+}
+
+.mobile-social__link {
+  text-decoration: none;
+  color: $hover-color;
 }
