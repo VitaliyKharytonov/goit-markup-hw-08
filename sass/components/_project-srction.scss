@@ -3,13 +3,25 @@
 .filter-list {
   @extend %list;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-
   margin-bottom: 50px;
+
+  @media screen and (max-width: $tablet - 1px) {
+    margin-bottom: 40px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    justify-content: center;
+  }
 }
 
 .filter-list__item {
+  @media screen and (max-width: $tablet - 1px) {
+    &:first-child {
+      margin-bottom: 15px;
+    }
+  }
+
   &:not(:last-child) {
     margin-right: 8px;
   }
@@ -28,7 +40,8 @@
   font-family: "Roboto";
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.62;
+  line-height: calc(26 / 16);
+  letter-spacing: 0.03em;
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -47,17 +60,30 @@
 
 .project__list {
   @extend %list;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
 }
 
 .project__item {
-  flex-basis: calc((100% - 2 * 30px) / 3);
   box-shadow: none;
 
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (max-width: $tablet - 1px) {
+    margin-bottom: 30px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    flex-basis: calc((100% - 30px) / 2);
+  }
+
+  @media screen and (min-width: $desktop) {
+    flex-basis: calc((100% - 2 * 30px) / 3);
+  }
 
   &:hover,
   &:focus {
@@ -68,6 +94,9 @@
 
 .project__link {
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   &:hover .project__description,
   &:focus .project__description {
@@ -99,7 +128,7 @@
   color: $auxiliary-text-color;
   background-color: $project-description-bg-color;
 
-  transform: translateY(100%);
+  transform: translateY(101%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -107,6 +136,7 @@
   border: 1px solid $project-meta-border-color;
   border-top: transparent;
   padding: 20px 24px;
+  flex-grow: 1;
 }
 
 .project__meta-name {
@@ -117,7 +147,7 @@
   text-decoration: none;
   font-weight: 700;
   font-size: 18px;
-  line-height: 2;
+  line-height: calc(36 / 18);
   letter-spacing: 0.06em;
 }
 
@@ -125,5 +155,5 @@
   @extend %title;
   color: $additional-text-color;
   font-size: 16px;
-  line-height: 1.88;
+  line-height: calc(30 / 16);
 }
