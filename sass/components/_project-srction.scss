@@ -119,6 +119,7 @@
 
 .project__image {
   @extend %image;
+  max-width: 450px;
 }
 
 .project__description {

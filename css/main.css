@@ -1547,6 +1547,10 @@ body {
   overflow: hidden;
 }
 
+.project__image {
+  max-width: 450px;
+}
+
 .project__description {
   position: absolute;
   width: 100%;
